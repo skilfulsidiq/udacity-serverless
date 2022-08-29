@@ -4,11 +4,12 @@ import { DocumentClient } from 'aws-sdk/clients/dynamodb'
 import { Types } from 'aws-sdk/clients/s3';
 import { TodoItem } from "../models/TodoItem";
 import { TodoUpdate } from "../models/TodoUpdate";
+import { createLogger } from '../utils/logger'
 
 const AWSXRay = require('aws-xray-sdk')
 const XAWS = AWSXRay.captureAWS(AWS)
 
-// const logger = createLogger('TodosAccess')
+const logger = createLogger('TodosAccess')
 
 // TODO: Implement the dataLayer logic
 
@@ -56,6 +57,10 @@ export class ToDoAccess {
       .promise()
 
     console.log(result)
+    logger.info('TODO was created', {
+        // Additional information stored with a log statement
+        key: 'value'
+    })
 
     return todoItem
   }

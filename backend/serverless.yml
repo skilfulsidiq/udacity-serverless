@@ -26,7 +26,7 @@ provider:
   environment:
     PROJECT_NAME: serverless-todo
     TODOS_TABLE: serverless-todo-${self:provider.stage}
-    S3_BUCKET_NAME: skilfulsidiq-serverless-${self:provider.stage}
+    S3_BUCKET_NAME: landmark-assets-bucket-${self:provider.stage}
 
 
 custom:
